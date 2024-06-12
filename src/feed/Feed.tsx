@@ -1,49 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
-
-interface FeedItem {
-  id: number;
-  title: string;
-  content: string;
-  thumbnail: string;
-}
-
-const FeedContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const MobileFeedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  padding: 10px;
-`;
-
-const Card = styled.div`
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const NoItemsMessage = styled.div`
-  text-align: center;
-  color: #555;
-  margin-top: 20px;
-`;
+import { Card, FeedContainer, MobileFeedContainer, NoItemsMessage } from "./css/feed.css";
+import { FeedItem } from "./interfaces/feed-item.interface";
 
 const Feed: React.FC = () => {
   const [items, setItems] = useState<FeedItem[]>([]);
