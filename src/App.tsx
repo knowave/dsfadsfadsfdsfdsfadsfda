@@ -38,17 +38,17 @@ function App() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   });
-  const isTabletOrMobile = useMediaQuery({
-    query: "(max-width: 1224px)",
-  });
 
   return (
     <AppContainer>
       <Header>
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+          {/* Edit <code>src/App.tsx</code> and save to reload. */}
+          {isDesktopOrLaptop
+            ? "Welcome to the desktop version of the app!"
+            : "You are on the mobile version of the app!"}
+          </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -59,12 +59,7 @@ function App() {
         </a>
       </Header>
       <MainContent>
-        {isDesktopOrLaptop && <Feed />}
-        {isTabletOrMobile && (
-          <MobileMessage>
-            Welcome to the mobile version of our site!
-          </MobileMessage>
-        )}
+        <Feed />
       </MainContent>
     </AppContainer>
   );
