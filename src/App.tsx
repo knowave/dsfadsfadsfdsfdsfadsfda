@@ -6,7 +6,7 @@ function App() {
   return (
     <AppContainer>
       <Header>
-        <p>반려동물을 위한 모든 것들</p>
+        <h2>반려동물을 위한 모든 것들</h2>
       </Header>
       <MainContent>
         <Feed />
