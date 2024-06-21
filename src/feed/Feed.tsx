@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import {
-  Card,
-  FeedContainer,
-  MobileFeedContainer,
-  NoItemsMessage,
-} from "./css/feed.css";
+import { Card, FeedContainer, NoItemsMessage } from "./css/feed.css";
 import { FeedItem } from "./interfaces/feed-item.interface";
 import { fetchFeedItems } from "./axios/get-public-feeds";
 
 const Feed: React.FC = () => {
   const [items, setItems] = useState<FeedItem[]>([]);
-  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +23,7 @@ const Feed: React.FC = () => {
     );
   }
 
-  return isDesktopOrLaptop ? (
+  return (
     <FeedContainer>
       {items.map((item, index) => (
         <Card key={index}>
@@ -40,16 +33,6 @@ const Feed: React.FC = () => {
         </Card>
       ))}
     </FeedContainer>
-  ) : (
-    <MobileFeedContainer>
-      {items.map((item, index) => (
-        <Card key={index}>
-          <img src={item.thumbnail} className="App-logo" alt="logo" />
-          <h3>{item.title}</h3>
-          <p>{item.content}</p>
-        </Card>
-      ))}
-    </MobileFeedContainer>
   );
 };
 
