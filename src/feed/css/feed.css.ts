@@ -1,35 +1,47 @@
 import styled from "styled-components";
 
 export const FeedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 `;
 
 export const Card = styled.div`
-  width: 100%;
-  max-width: 600px;
-  margin: 10px 0;
-  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  background-color: white;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  max-width: 100%;
+  width: 100%;
+
   img {
-    width: 100%;
-    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
   }
+
   h3 {
-    margin: 10px 0;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
   }
+
   p {
-    color: #666;
+    font-size: 1rem;
+    color: #666666;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
   }
 `;
 
 export const NoItemsMessage = styled.div`
+  color: #666666;
+  font-size: 1.2rem;
   text-align: center;
-  margin: 20px;
-  font-size: 1.2em;
-  color: #888;
+  padding: 20px;
 `;
