@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import axios from "axios";
-import { Card, FeedContainer, MobileFeedContainer, NoItemsMessage } from "./css/feed.css";
+import {
+  Card,
+  FeedContainer,
+  MobileFeedContainer,
+  NoItemsMessage,
+} from "./css/feed.css";
 import { FeedItem } from "./interfaces/feed-item.interface";
+import { fetchFeedItems } from "./axios/get-public-feeds";
 
 const Feed: React.FC = () => {
   const [items, setItems] = useState<FeedItem[]>([]);
@@ -10,13 +15,8 @@ const Feed: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/feed");
-        console.log("response: ", response.data);
-        setItems(response.data);
-      } catch (error) {
-        console.error("Error fetching the feed items:", error);
-      }
+      const data = await fetchFeedItems();
+      setItems(data);
     };
 
     fetchData();
