@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const AppContainer = styled.div`
   text-align: center;
 `;
@@ -12,21 +11,25 @@ export const Header = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   font-size: calc(10px + 2vmin);
   color: white;
 `;
 
-export const MainContent = styled.main`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const Nav = styled.nav`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  a {
+    color: #61dafb;
+    text-decoration: none;
+  }
 `;
 
-export const MobileMessage = styled.div`
-  background-color: #61dafb;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
-  color: white;
+export const MainContent = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
 `;
